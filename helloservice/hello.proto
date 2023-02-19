@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package helloservice;
+
+option go_package = ".;helloservice"; // 指定包名
+
+message String {
+  string value = 1;
+}
+
+service HelloService {
+  rpc Hello(String) returns (String); // 一元方法
+  rpc Channel (stream String) returns (stream String); // 流式方法
+}
